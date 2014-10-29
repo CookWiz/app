@@ -11,7 +11,8 @@
 
     <description>
     </description>
-
+	
+	<access origin="*" />
     <author href="https://build.phonegap.com" email="cookwiz4@gmail.com">
         Tom, Lidor and Tal
     </author>
