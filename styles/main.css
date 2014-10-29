@@ -5,5 +5,12 @@
 
 img {
     margin: 0 auto;
-    height: 300px !important;
+    height: 200px !important;
 }
+
+.navbar-toggle {
+    margin-left: 10px;
+    margin-right: 0px;
+}
+
+
