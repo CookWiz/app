@@ -3,7 +3,7 @@
     margin-top: 51px;
 }
 
-img {
+.carousel img {
     margin: 0 auto;
     height: 200px !important;
 }
@@ -14,3 +14,7 @@ img {
 }
 
 
+
+.navbar-brand {
+    margin-left: -10px;
+}
