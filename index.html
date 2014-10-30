@@ -1,24 +1,37 @@
-<!doctype html>
-<html lang="en" ng-app="myApp">
+<html ng-app="TODO">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <link href="topcoat/css/topcoat-mobile-light.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <script src="lib/angular.js"></script>
-    <script src="lib/angular-touch.js"></script>
-    <script src="lib/angular-resource.js"></script>
-    <script src="lib/angular-animate.js"></script>
-    <script src="lib/angular-route.js"></script>
+    <title>Music</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <link href="css/ionic.css" rel="stylesheet">
+    <script src="js/ionic.bundle.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/memory-services.js"></script>
-    <script src="js/rest-services.js"></script>
+
+    <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
+    <script src="cordova.js"></script>
 </head>
 
-<body ng-controller="MainCtrl">
-
-<div ng-view ng-class="slide"></div>
-
+<body>
+    <ion-side-menus>
+        <ion-side-menu-content ng-controller="TaskController">
+            <ion-header-bar class="bar-positive">
+                <button class="button button-icon icon ion-navicon"></button>
+                <h1 class="title">My Tasks</h1>
+            </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                    <ion-item ng-repeat="task in tasks">
+                        {{ task.title }}
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-side-menu-content>
+        <ion-side-menu side="left">
+            
+        </ion-side-menu>
+    </ion-side-menus>
 </body>
+
 </html>

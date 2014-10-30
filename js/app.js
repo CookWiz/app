@@ -1,15 +1,36 @@
-'use strict';
+angular.module('TODO', ['ionic'])
 
-angular.module('myApp', [
-    'ngTouch',
-    'ngRoute',
-    'ngAnimate',
-    'myApp.controllers',
-    'myApp.memoryServices'
-]).
-config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/employees', {templateUrl: 'partials/employee-list.html', controller: 'EmployeeListCtrl'});
-    $routeProvider.when('/employees/:employeeId', {templateUrl: 'partials/employee-detail.html', controller: 'EmployeeDetailCtrl'});
-    $routeProvider.when('/employees/:employeeId/reports', {templateUrl: 'partials/report-list.html', controller: 'ReportListCtrl'});
-    $routeProvider.otherwise({redirectTo: '/employees'});
-}]);
+.controller('TaskController', function ($scope) {
+    $scope.tasks = [
+        { 
+            title: "Create app", 
+            description: "Create a mobile app", 
+            isdone: false, 
+            reminderDate: "" 
+        },
+        { 
+            title: "Create app2", 
+            description: "Create a mobile app2", 
+            isdone: false, 
+            reminderDate: "" 
+        },
+        { 
+            title: "Create app2", 
+            description: "Create a mobile app2", 
+            isdone: false, 
+            reminderDate: "" 
+        },
+        { 
+            title: "Create app2", 
+            description: "Create a mobile app2", 
+            isdone: false, 
+            reminderDate: "" 
+        },
+        { 
+            title: "Create app2", 
+            description: "Create a mobile app2", 
+            isdone: false, 
+            reminderDate: "" 
+        }
+    ];
+})
