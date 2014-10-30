@@ -1,6 +1,6 @@
 angular.module('TODO', ['ionic'])
 
-.controller('TaskController', function ($scope) {
+.controller('TaskController', function ($scope, $ionicSideMenuDelegate) {
     $scope.tasks = [
         { 
             title: "Create app", 
@@ -33,4 +33,8 @@ angular.module('TODO', ['ionic'])
             reminderDate: "" 
         }
     ];
-})
+    
+    $scope.toggleMenu = function () { 
+        $ionicSideMenuDelegate.toggleLeft();
+    };
+});
