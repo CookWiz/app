@@ -33,6 +33,16 @@ angular.module('TODO', ['ionic'])
             reminderDate: "" 
         }
     ];
+    $scope.newTask = { title: "", description: "", isdone: false, reminderDate: "" };
+    
+    $scope.addTask = function ($event) {
+        if ($event.keyCode == 13)
+        {
+            $scope.tasks.push($scope.newTask);
+            
+            $scope.newTask = { title: "", description: "", isdone: false, reminderDate: "" };
+        }
+    }
     
     $scope.toggleMenu = function () { 
         $ionicSideMenuDelegate.toggleLeft();
