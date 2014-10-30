@@ -24,9 +24,15 @@
             </ion-header-bar>
             <ion-content>
                 <div class="list list-inset">
+                   <label class="item item-input">
+                        <input type="text" 
+                               placeholder="New task title" 
+                               ng-model="newTask.title" 
+                               ng-keydown="addTask($event)">
+                    </label>
                     <label class="item item-input">
                         <input type="text" 
-                               placeholder="New task" 
+                               placeholder="New task description" 
                                ng-model="newTask.description" 
                                ng-keydown="addTask($event)">
                     </label>

@@ -40,7 +40,12 @@ angular.module('TODO', ['ionic'])
         {
             $scope.tasks.push($scope.newTask);
             
-            $scope.newTask = { title: "", description: "", isdone: false, reminderDate: "" };
+            $scope.newTask = { 
+                title: "", 
+                description: "", 
+                isdone: false, 
+                reminderDate: "" 
+            };
         }
     }
     
