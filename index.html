@@ -8,6 +8,7 @@
     <link href="css/ionic.css" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
     
+    <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/ionic.bundle.min.js"></script>
     <script src="js/app.js"></script>
 
@@ -18,32 +19,54 @@
 <body>
     <ion-side-menus>
         <ion-side-menu-content ng-controller="TaskController">
+           
             <ion-header-bar class="bar-positive">
                 <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
                 <h1 class="title">My Tasks</h1>
             </ion-header-bar>
             <ion-content>
                 <div class="list list-inset">
-                   <label class="item item-input">
-                        <input type="text" 
+                    <label class="item item-input">
+                        <input id="taskTitle" type="text"
                                placeholder="New task title" 
                                ng-model="newTask.title" 
-                               ng-keydown="addTask($event)">
+                               ng-keydown="focusDesc($event)">
                     </label>
                     <label class="item item-input">
-                        <input type="text" 
+                        <input id="taskDesc" 
+                               type="text" 
                                placeholder="New task description" 
                                ng-model="newTask.description" 
-                               ng-keydown="addTask($event)">
+                               ng-keydown="addTaskEnter($event)">
                     </label>
+                    <button class="button button-block button-small button-positive" ng-click="addTaskButton($event)">
+                        Add task
+                    </button>
                 </div>
                 <ion-list>
-                    <ion-item ng-repeat="task in tasks">
-                        <span class="task-title">
-                            {{ task.title }}
-                        </span>
-                        <div class="task-description">
-                            {{ task.description }}
+                    <ion-item class="item-button-right" 
+                              ng-repeat="task in tasks">
+                        <div class="row">
+                            <div class="col">
+                                <span class="task-title">
+                                    {{ task.title }}
+                                </span>
+                                <div class="task-description">
+                                    {{ task.description }}
+                                </div>
+                            </div>
+                            <div class="col col-10">
+                                <div class="button-bar">
+                                    <button class="button button-balanced" 
+                                            ng-click="finishTask($index)">
+                                        <i class="icon ion-android-checkmark"></i>
+                                    </button>
+                                    <button class="button button-assertive" 
+                                            ng-click="deleteTask($index)">
+                                        <i class="icon ion-android-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </ion-item>
                 </ion-list>

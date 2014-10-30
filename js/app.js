@@ -33,9 +33,31 @@ angular.module('TODO', ['ionic'])
             reminderDate: "" 
         }
     ];
-    $scope.newTask = { title: "", description: "", isdone: false, reminderDate: "" };
+    $scope.completedTasks = [];
+    $scope.newTask = { 
+        title: "", 
+        description: "", 
+        isdone: false, 
+        reminderDate: "" 
+    };
     
-    $scope.addTask = function ($event) {
+    $scope.focusDesc = function ($event) {
+        if ($event.keyCode == 13)
+        {
+            $('#taskDesc').focus();
+        }
+    }
+    
+    $scope.finishTask = function ($index) {
+        $scope.completedTasks.push($scope.tasks[$index]);
+        $scope.deleteTask($index);
+    }
+    
+    $scope.deleteTask = function ($index) {
+        $scope.tasks.splice($index, 1);
+    }
+    
+    $scope.addTaskEnter = function ($event) {
         if ($event.keyCode == 13)
         {
             $scope.tasks.push($scope.newTask);
@@ -47,6 +69,18 @@ angular.module('TODO', ['ionic'])
                 reminderDate: "" 
             };
         }
+    }
+    
+    $scope.addTaskButton = function ($event) {
+
+            $scope.tasks.push($scope.newTask);
+            
+            $scope.newTask = { 
+                title: "", 
+                description: "", 
+                isdone: false, 
+                reminderDate: "" 
+            };
     }
     
     $scope.toggleMenu = function () { 
