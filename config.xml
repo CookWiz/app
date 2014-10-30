@@ -23,4 +23,6 @@
 	<gap:splash src="splash.png" />
 	<gap:splash src="splash.png" gap:platform="android" gap:density="xxhdpi" />
 	
+	<preference name="android-minSdkVersion" value="19" />
+	
 </widget>
